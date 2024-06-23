@@ -11,7 +11,7 @@ function App() {
     expectedReturn:6,
     duration:1
 })
-
+const isInputValid= intialInvestmentParameter.duration >=1;
 function HandleUserInput(inputIdentifier, newInputValue){
   setInvestmentParameters(prevUserInput =>{
 
@@ -25,7 +25,8 @@ function HandleUserInput(inputIdentifier, newInputValue){
     <div>
      <Header/>
      <UserInputs intialInvestmentParameter={intialInvestmentParameter}  onChangeInputs={HandleUserInput} />
-     <Results resultValues={intialInvestmentParameter} />
+     {isInputValid ? <Results resultValues={intialInvestmentParameter} /> : <center>Enter valid duration!</center>}
+     
     </div>
    
   )
